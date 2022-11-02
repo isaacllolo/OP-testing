@@ -43,24 +43,7 @@
             <br>
         </div>
     </section>
-    <script>
-        document.querySelector('form')
-        .addEventListener('submit', e => {
-            e.preventDefault()
-            const data = Object.fromEntries(
-                new FormData(e.target)
-            )
-            if(data.contraseña != data.contraseña2){
-                document.getElementById('msg').innerHTML = 'Las contraseñas no coinciden'
-                e.preventDefault()
-            }
-            else{
-                document.getElementById('msg').innerHTML = ''
-                const usuario = data.usuario;
-                const contraseña = data.contraseña;
-                console.log('usuario: '+usuario, '\ncontraseña: '+contraseña)
-            }
-        })
-    </script>
+    <script src="app.js"></script>
+
 </body>
 </html>
