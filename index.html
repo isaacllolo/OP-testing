@@ -18,7 +18,7 @@
         <div class="m-5" style="margin-top: 20px;">
             <br>
             <h1 style="text-align: center;">Inicia sesión</h1>
-            <form action="clientes.html" method="get">
+            <form id="formulario"action="" method="POST">
                 <br>
                 <div class="mb-3">
                 <label for="usuario" class="form-label">Usuario</label>
@@ -37,17 +37,5 @@
             <br>
         </div>
     </section>
-    <script>
-        document.querySelector('form')
-        .addEventListener('submit', e => {
-            //e.preventDefault()
-            const data = Object.fromEntries(
-                new FormData(e.target)
-            )
-            const usuario = data.usuario;
-            const contraseña = data.contraseña;
-            console.log('usuario: '+usuario, '\ncontraseña: '+contraseña)
-        })
-    </script>
-</body>
+    <script src="index.js"></script>
 </html>

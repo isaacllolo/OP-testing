@@ -12,12 +12,17 @@ $dbname="backs&a";
 
 try {
     $conexion = new PDO("mysql:host={$host};port={$port};dbname={$dbname}", $user, 'password');
-    $con = $conexion->prepare('INSERT INTO usuarios(usuario,contrseña) VALUES(?, ?)');
-    $con->bindParam(1, $usuario);
-    $con->bindParam(2, $password);
+    $con = $conexion->prepare('SELECT * FROM usuarios WHERE contraseña=".$password." AND usuario=".$usuario.";');
     $con->execute() or die(print($pdo->errorInfo()));
+    // Verificando si el usuario existe en la base de datos.
+  if($con){
+    // Guardo en la sesión el email del usuario.
+    $_SESSION['usuario'] = $usuario;
+    echo json_encode('true');
 
-    echo json_encode('true');} 
+  }
+    
+    } 
     
     catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
