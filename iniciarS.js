@@ -9,7 +9,7 @@ document.getElementById('formulario').addEventListener('submit', function(e) {
     }).then(res => res.json())
   .then(({ success }) => {
       if (success === 1) {
-          location.href = 'home.php';
+          location.href = 'clientes.html';
       } else {
           alerta();
       }

@@ -14,8 +14,8 @@ $dbname="backs&a";
     if(isset($_POST['usuario']) && !empty($_POST['usuario']) && isset($_POST['contraseña']) && !empty($_POST['contraseña'])){
       $usuario = $_POST['usuario'];
      $contraseña = $_POST['contraseña'];
-      $query = "SELECT * FROM usuarios WHERE (nom_usuario ='$usuario' && contraseñad = '$contraseña')";
-      $result = mysqli_query($conexion,$query) or die(mysql_error());
+      $query = "SELECT * FROM usuarios WHERE (usuario ='$usuario' && contraseña = '$contraseña')";
+      $result = mysqli_query($conexion,$query) or die("Problemas al insertar".mysqli_error($conexion));
 
       if(mysqli_num_rows($result)>0){
           echo json_encode(array('success'=> 1));
