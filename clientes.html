@@ -12,8 +12,8 @@
 <body style="background: #D2B1EA;">
     <nav class="navbar mx-5 my-4">
         <h1>OP Testing</h1>
-        <a href="index.html" style="text-decoration: none; color: #5F6C7B;">
-            <button class="btn btn-primary"><span class="mx-3">Cerrar sesión</span></button>
+        <a href="cerrar_sesion.php" style="text-decoration: none; color: #5F6C7B;">
+            <button class="btn btn-primary" act><span class="mx-3">Cerrar sesión</span></button>
         </a>
     </nav>
 
@@ -23,7 +23,7 @@
             <br>
             <h1 style="text-align: center;">Números a operar</h1>
             <br><br>
-            <form action="#" method="get">
+            <form action="#" id ="formulario"method="get">
                 <br>
                 <div class="mb-5 d-flex">
                     <input name="num1" type="number" class="form-control" id="num1" placeholder="1234" required>
@@ -44,32 +44,7 @@
             <br>
         </div>
     </section>
-    <script>
-        document.querySelector('form')
-        .addEventListener('submit', e => {
-            e.preventDefault()
-            const data = Object.fromEntries(
-                new FormData(e.target)
-            )
+    <script src="clientes.js"></script>
 
-            //aquí se mete la operación y se envía a la base de datos cada vez que se haga una
-            const operacion = {
-                num1: data.num1,
-                num2: data.num2,
-                
-                suma: parseFloat(data.num1) + parseFloat(data.num2),
-                resta: data.num1 - data.num2,
-                multiplicacion: data.num1 * data.num2,
-                division: data.num1 / data.num2
-            }
-
-            document.getElementById('resultados').innerHTML = 
-            `<h2>Operaciones entre `+operacion.num1+` y `+operacion.num2+`</h2><br>
-            <h3>Suma = `+operacion.suma+`</h3>
-            <h3>Resta = `+operacion.resta+`</h3>
-            <h3>Multiplicación = `+operacion.multiplicacion+`</h3>
-            <h3>División = `+operacion.division+`</h3>`;
-        })
-    </script>
 </body>
 </html>

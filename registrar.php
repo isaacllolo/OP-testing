@@ -1,7 +1,8 @@
 <?php
 
 $usuario = isset($_POST['usuario']) ? $_POST['usuario'] : '';
-$password = isset($_POST['password']) ? $_POST['password'] : '';
+$contraseña = isset($_POST['contraseña']) ? $_POST['contraseña'] : '';
+$estatus = 'U';
 
 
 $host="localhost";
@@ -12,9 +13,10 @@ $dbname="backs&a";
 
 try {
     $conexion = new PDO("mysql:host={$host};port={$port};dbname={$dbname}", $user, 'password');
-    $con = $conexion->prepare('INSERT INTO usuarios(usuario,contrseña) VALUES(?, ?)');
+    $con = $conexion->prepare('INSERT INTO usuarios(usuario,contraseña,estatus) VALUES(?, ?,?)');
     $con->bindParam(1, $usuario);
-    $con->bindParam(2, $password);
+    $con->bindParam(2, $contraseña);
+    $con->bindParam(3, $estatus);
     $con->execute() or die(print($pdo->errorInfo()));
 
     echo json_encode('true');} 
