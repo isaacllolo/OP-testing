@@ -1,6 +1,6 @@
 <?php
-
-echo($_SESSION['usuario']);
+session_start();
+$usuario=$_SESSION['usuario'];
 
 $num1 = isset($_POST['num1']) ? $_POST['num1'] : '';
 $num2 = isset($_POST['num2']) ? $_POST['num2'] : '';
@@ -28,15 +28,13 @@ try {
     $con->bindParam(7,$division);
    
     $con->execute() or die(print($pdo->errorInfo()));
-
-    // Verificando si el usuario existe en la base de datos.
+   // Verificando si el usuario existe en la base de datos.
   
     echo json_encode('true');
-  
     
     } 
     
     catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
 }
-    
+?>

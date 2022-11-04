@@ -10,7 +10,9 @@ document.getElementById('formulario').addEventListener('submit', function(e) {
   .then(({ success }) => {
       if (success === 1) {
           location.href = 'clientes.html';
-      } else {
+      }
+      
+      else {
           alerta();
       }
   });

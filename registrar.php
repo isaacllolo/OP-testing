@@ -20,7 +20,7 @@ try {
     $con->execute() or die(print($pdo->errorInfo()));
 
     echo json_encode('true');} 
-    
+
     catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
 }
